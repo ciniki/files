@@ -1,0 +1,35 @@
+#
+# Description
+# -----------
+# This table stores files for use in other modules. It was developed
+# to make adding files to WNG sites easy as adding images.
+#
+# Fields
+# ------
+# id:                       The ID assigned to the record.
+# uuid:                     The Universal Unique ID.
+# tnid:                     The Tenant ID the record belongs to.
+#
+# filename:                 The filename of the file.
+# type:                     The type of file **future**
+#
+# date_added:               The UTC date and time the record was added.
+# last_updated:             The UTC date and time the record was last update.
+#
+create table ciniki_files (
+    id int not null auto_increment,
+    uuid char(36) not null,
+    tnid int not null,
+
+    filename varchar(250) not null,
+    permalink varchar(250) not null,
+    content_type varchar(50) not null,
+    extension varchar(10) not null,
+    checksum varchar(250) not null,
+
+    date_added datetime not null,
+    last_updated datetime not null,
+    primary key (id),
+    unique index (uuid),
+    index sync (tnid, uuid, last_updated)
+) ENGINE='InnoDB', COMMENT='v1.01';
