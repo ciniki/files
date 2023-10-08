@@ -70,7 +70,7 @@ function ciniki_files_fileAdd(&$ciniki) {
     }
 
     ciniki_core_loadMethod($ciniki, 'ciniki', 'core', 'private', 'makePermalink');
-    $args['permalink'] = ciniki_core_makePermalink($ciniki, $args['filename']);
+    $args['permalink'] = ciniki_core_makePermalink($ciniki, $args['filename'], 'filename');
 
     //
     // Get a UUID for use in permalink
